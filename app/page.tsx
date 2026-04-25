@@ -2,11 +2,10 @@
 "use client"
  
 import { useState, useRef, useCallback } from "react"
-import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Upload, Leaf, Loader2, ImageIcon, X, Clock, AlertTriangle, CheckCircle2, XCircle, Lightbulb, ShoppingBag } from "lucide-react"
+import { Upload, Leaf, Loader2, ImageIcon, X, Clock, AlertTriangle, CheckCircle2, XCircle, Lightbulb } from "lucide-react"
  
 interface AnalysisResult {
   rating: number
@@ -200,7 +199,6 @@ function QuickGlanceCard({ analysis }: { analysis: AnalysisResult }) {
  
 // ─── Main page ───────────────────────────────────────────────────────────────
 export default function Home() {
-  const router = useRouter()
   const [image, setImage] = useState<string | null>(null)
   const [capturedAngles, setCapturedAngles] = useState<string[]>([])
   const [currentAngle, setCurrentAngle] = useState(0)
@@ -335,16 +333,6 @@ export default function Home() {
             <h1 className="text-3xl font-bold tracking-tight text-foreground">TerraLoop</h1>
           </div>
           <p className="text-muted-foreground">Instant fruit freshness analysis powered by AI</p>
-          
-          {/* Navigation to User Browse */}
-          <Button
-            variant="outline"
-            className="mt-4 rounded-full"
-            onClick={() => router.push("/user")}
-          >
-            <ShoppingBag className="mr-2 h-4 w-4" />
-            Browse Fresh Fruits
-          </Button>
         </div>
  
         {/* Upload card */}
